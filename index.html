@@ -30,8 +30,7 @@
       inset: 0;
       pointer-events: none;
       opacity: 0.07;
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
       z-index: 10;
     }
 
@@ -109,4 +108,78 @@
       color: #555;
       font-family: Georgia, serif;
       font-size: 13px;
-      font
+      line-height: 1.8;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="name">mhmd</div>
+
+    <div class="time" id="time">00:00</div>
+
+    <div class="subtitle">
+      somewhere between dreams and reality
+    </div>
+
+    <div class="line"></div>
+
+    <div class="section">
+      <a href="https://instagram.com/" target="_blank">
+        Instagram
+      </a>
+      <div class="small">social</div>
+    </div>
+
+    <div class="section">
+      <a href="https://letterboxd.com/" target="_blank">
+        Letterboxd
+      </a>
+      <div class="small">movies</div>
+    </div>
+
+    <div class="section">
+      <a href="https://github.com/" target="_blank">
+        GitHub
+      </a>
+      <div class="small">projects</div>
+    </div>
+
+    <div class="quote">
+      somewhere between dreams and reality.
+    </div>
+
+  </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+
+      document.getElementById("time").textContent =
+        hours + ":" + minutes;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+
+</body>
+</html>
